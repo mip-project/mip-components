@@ -1,21 +1,21 @@
 {
-  "name": "mip-components",
-  "version": "1.0.0",
-  "description": "Custom MIP Components Repository",
-  "main": "index.js",
-  "scripts": {
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mip-project/mip-components.git"
-  },
-  "keywords": [
-    "MIP"
-  ],
-  "author": "MIP",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/mip-project/mip-components/issues"
-  },
-  "homepage": "https://github.com/mip-project/mip-components#readme"
+    "name": "mip-components",
+    "version": "1.0.0",
+    "description": "Custom MIP Components Repository",
+    "main": "index.js",
+    "scripts": {
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mip-project/mip-components.git"
+    },
+    "keywords": [
+        "MIP"
+    ],
+    "author": "MIP",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/mip-project/mip-components/issues"
+    },
+    "homepage": "https://github.com/mip-project/mip-components#readme"
 }
