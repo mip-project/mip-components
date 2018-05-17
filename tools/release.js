@@ -8,12 +8,20 @@ const fs = require('fs-extra');
 const async = require('async');
 const home = require('user-home');
 const BosClient = require('baidubce-sdk').BosClient;
-const bosConfig = require(path.join(home, '.mipbosconf'));
-
 const distPath = path.resolve(__dirname, '../dist');
 
 if (!fs.pathExistsSync(distPath)) {
     console.log('ERR: dist does not exist! Please build before release');
+    return;
+}
+
+let bosConfig;
+
+try {
+    bosConfig = require(path.join(home, '.mipbosconf'));
+}
+catch (e) {
+    console.log('ERR: bos config file: .mipbosconf was not found at ' + home);
     return;
 }
 
