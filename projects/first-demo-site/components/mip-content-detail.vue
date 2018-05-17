@@ -8,7 +8,7 @@
     </div>
 </template>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 .wrapper
     margin 0 auto
     color #333
