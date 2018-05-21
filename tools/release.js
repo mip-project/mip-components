@@ -7,6 +7,8 @@ const path = require('path');
 const fs = require('fs-extra');
 const async = require('async');
 const home = require('user-home');
+const glob = require('glob');
+const mime = require('mime');
 const BosClient = require('baidubce-sdk').BosClient;
 const distPath = path.resolve(__dirname, '../dist');
 
@@ -39,7 +41,7 @@ const upload = function (fileName, done) {
         savePath,
         file,
         {
-            'Content-Type': 'application/javascript',
+            'Content-Type': mime.getType(file),
             'Cache-Control': 'max-age=600'
         }
     )
@@ -54,14 +56,13 @@ const upload = function (fileName, done) {
     });
 };
 
-const files = fs.readdirSync(path.resolve(__dirname, '../dist'));
-
-async.each(files, upload, err => {
-    if (err) {
-        console.log(err);
-    }
-    else {
-        console.log('All resources has been Uploaded successfully!');
-    }
+glob('**/*.*', {cwd: distPath}, (er, files) => {
+    async.each(files, upload, err => {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            console.log('All resources has been Uploaded successfully!');
+        }
+    });
 });
-

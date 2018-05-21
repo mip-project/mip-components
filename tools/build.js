@@ -14,11 +14,12 @@ if (!fs.pathExistsSync(extensionsPath)) {
     return;
 }
 
-const build = function (proj, done) {
+const build = function () {
     let src = path.join(process.cwd(), 'extensions');
     let dist = path.join(process.cwd(), 'dist');
+    const publicPath = 'https://bos.nj.bpc.baidu.com/assets/mip/projects/common';
 
-    execa('mip2', ['build', '--dir', src, '--output', dist])
+    execa('mip2', ['build', '--dir', src, '--output', dist, '--asset', publicPath])
     .then(res => {
         console.log('All components has been build successfully!');
     });
